@@ -31,9 +31,9 @@ const crearCategoria = async (req, res) => {
     const categoriaDB = await Categoria.findOne({nombre});
 
     if (categoriaDB) {
-        res.status(400).json({
+        return res.status(400).json({
             msg: `La categoría ${categoriaDB.nombre}, ya existe`
-        })
+        });
     }
 
     // Generar la data a guardar
